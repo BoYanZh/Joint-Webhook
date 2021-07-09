@@ -8,8 +8,8 @@ from webhook_elf.gitea import Gitea
 
 # TODO: Call elf here
 def run_elf(repo_dir: str) -> Tuple[str, str]:
-    subprocess.call([])
-    return "", ""
+    subprocess.call(["ls"])
+    return "title", "body"
 
 
 git = Git()

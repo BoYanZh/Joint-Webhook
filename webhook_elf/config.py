@@ -11,9 +11,11 @@ class Settings(BaseSettings):
     debug: bool = False
 
     # gitea
+    gitea_host: str = "https://focs.ji.sjtu.edu.cn/git/api/v1"
     gitea_access_token: str = ""
 
     # git
+    git_remote_url: str = "ssh://git@focs.ji.sjtu.edu.cn:2222"
     repos_dir: str = "./repos"
 
     class Config:

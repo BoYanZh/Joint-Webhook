@@ -1,7 +1,9 @@
 import os
 import pathlib
+import shutil
 
 from git import Repo
+from git.exc import InvalidGitRepositoryError
 
 from webhook_elf.config import settings
 
@@ -16,8 +18,9 @@ class Git:
     ) -> Repo:
         repo_dir = os.path.join(self.repos_dir, owner_name, repo_name)
         pathlib.Path(repo_dir).mkdir(parents=True, exist_ok=True)
+        print(f"{settings.git_remote_url}/{owner_name}/{repo_name}.git")
         return Repo.clone_from(
-            f"ssh://git@focs.ji.sjtu.edu.cn:2222/{owner_name}/{repo_name}.git",
+            f"{settings.git_remote_url}/{owner_name}/{repo_name}.git",
             repo_dir,
             branch=branch,
         )
@@ -25,7 +28,10 @@ class Git:
     def get_repo(self, owner_name: str, repo_name: str) -> Repo:
         repo_dir = os.path.join(self.repos_dir, owner_name, repo_name)
         if os.path.exists(repo_dir):
-            return Repo(repo_dir)
+            try:
+                return Repo(repo_dir)
+            except InvalidGitRepositoryError:
+                shutil.rmtree(repo_dir)
         return self.clone_repo(owner_name, repo_name)
 
     def repo_clean_and_checkout(

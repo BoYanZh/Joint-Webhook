@@ -7,6 +7,7 @@ class Gitea:
     def __init__(self, access_token: str = settings.gitea_access_token):
         configuration = focs_gitea.Configuration()
         configuration.api_key["access_token"] = access_token
+        configuration.host = settings.gitea_host
         self.api_client = focs_gitea.ApiClient(configuration)
         self.admin_api = focs_gitea.AdminApi(self.api_client)
         self.miscellaneous_api = focs_gitea.MiscellaneousApi(self.api_client)
