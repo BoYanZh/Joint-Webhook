@@ -1,8 +1,9 @@
 from http import HTTPStatus
-from webhook_elf.utils import webhook_push_task
-from fastapi import APIRouter, Response, BackgroundTasks
+
+from fastapi import APIRouter, BackgroundTasks, Response
 
 from webhook_elf.schema import GiteaWebhook
+from webhook_elf.utils import webhook_push_task
 
 router = APIRouter()
 

@@ -1,13 +1,15 @@
-from typing import Tuple
-from webhook_elf.config import settings
-from webhook_elf.gitea import Gitea
-from webhook_elf.git import Git
 import subprocess
+from typing import Tuple
+
+from webhook_elf.config import settings
+from webhook_elf.git import Git
+from webhook_elf.gitea import Gitea
+
 
 # TODO: Call elf here
 def run_elf(repo_dir: str) -> Tuple[str, str]:
     subprocess.call([])
-    return ""
+    return "", ""
 
 
 git = Git()

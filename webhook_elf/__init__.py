@@ -1,9 +1,7 @@
-from typing import Any
-
 from fastapi import FastAPI, Request, status
 
-from webhook_elf.config import settings
 from webhook_elf.api import router
+from webhook_elf.config import settings
 
 app = FastAPI(title=settings.app_name)
 

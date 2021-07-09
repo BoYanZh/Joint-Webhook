@@ -17,7 +17,7 @@ source venv/Scripts/activate
 
 ```bash
 pip3 install -r requirements.txt
-cp .env.example .env && vi .env\
+cp .env.example .env && vi .env # configure environment
 python3 -m webhook_src
 ```
 

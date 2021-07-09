@@ -122,8 +122,8 @@ class GiteaWebhook(BaseModel):
     before: str
     after: str
     compare_url: str
-    commits: Optional[List[Commit]]
+    commits: List[Commit]
     head_commit: Optional[Commit]
-    repository: Optional[Repository]
+    repository: Repository
     pusher: Optional[User]
     sender: Optional[User]
