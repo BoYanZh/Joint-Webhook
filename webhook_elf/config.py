@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     # gitea
     gitea_host: str = "https://focs.ji.sjtu.edu.cn/git/api/v1"
     gitea_access_token: str = ""
+    gitea_issue_title: str = "{time} - Elf report"
 
     # git
     git_remote_url: str = "ssh://git@focs.ji.sjtu.edu.cn:2222"
