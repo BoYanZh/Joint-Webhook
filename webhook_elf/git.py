@@ -37,7 +37,7 @@ class Git:
     def repo_clean_and_checkout(
         self, owner_name: str, repo_name: str, checkout_dest: str
     ) -> str:
-        repo_dir = os.path.join(self.repos_dir, repo_name)
+        repo_dir = os.path.join(self.repos_dir, owner_name, repo_name)
         repo = self.get_repo(owner_name, repo_name)
         repo.git.fetch("--tags", "--all", "-f")
         repo.git.reset("--hard", f"origin/master")

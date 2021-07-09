@@ -22,6 +22,6 @@ def run_elf(repo_dir: str) -> Tuple[str, str]:
 
 
 def webhook_push_task(owner_name: str, repo_name: str, latest_commit_id: str) -> None:
-    reop_dir = git.repo_clean_and_checkout(owner_name, repo_name, latest_commit_id)
-    title, body = run_elf(reop_dir)
+    repo_dir = git.repo_clean_and_checkout(owner_name, repo_name, latest_commit_id)
+    title, body = run_elf(repo_dir)
     gitea.create_issue(owner_name, repo_name, title, body, False)
