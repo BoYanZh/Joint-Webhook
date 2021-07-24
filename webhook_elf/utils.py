@@ -15,8 +15,7 @@ def run_elf(repo_dir: str) -> Tuple[str, str]:
     now = datetime.now()
     time = now.strftime("%m/%d/%Y, %H:%M:%S")
     title = settings.gitea_issue_title.format(time=time)
-    # TODO: Call elf here
-    command = ["ls", repo_dir]
+    command = ["./elf", repo_dir]
     body = subprocess.check_output(command).decode(sys.stdout.encoding).strip()
     return title, body
 

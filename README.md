@@ -15,10 +15,12 @@ source venv/Scripts/activate
 
 ### Install & Run
 
+First put elf binary in the same dir as this README.
+
 ```bash
 pip3 install -r requirements.txt
 cp .env.example .env && vi .env # configure environment
-python3 -m webhook_src
+python3 -m webhook_elf
 ```
 
 ### For developers
