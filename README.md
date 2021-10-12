@@ -15,12 +15,13 @@ source venv/Scripts/activate
 
 ### Install & Run
 
-First put elf binary in the same dir as this README.
+First put elf binary in the same dir as this README. Check webhook_elf/run_elf for more details.
 
 ```bash
 pip3 install -r requirements.txt
 cp .env.example .env && vi .env # configure environment
-python3 -m webhook_elf
+python3 webhook_helper/add_webhooks.py # create webhooks
+python3 -m webhook_elf # start SaaS
 ```
 
 ### For developers

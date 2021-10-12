@@ -18,7 +18,6 @@ class Git:
     ) -> Repo:
         repo_dir = os.path.join(self.repos_dir, owner_name, repo_name)
         pathlib.Path(repo_dir).mkdir(parents=True, exist_ok=True)
-        print(f"{settings.git_remote_url}/{owner_name}/{repo_name}.git")
         return Repo.clone_from(
             f"{settings.git_remote_url}/{owner_name}/{repo_name}.git",
             repo_dir,
